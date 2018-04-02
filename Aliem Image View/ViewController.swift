@@ -9,17 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var counter = 1
+    var dyd = 1
+    
+    @IBOutlet weak var myimage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //첫번째 이미지 로드함
+        myimage.image = UIImage(named:"frame1.png")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func bt(_ sender: Any) {
+        if counter == 5{
+            dyd = 0
+        }else if counter == 1{
+           dyd = 1
+        }
+        if dyd == 1{
+            counter += 1
+        }else if dyd == 0{
+           counter -= 1
+        }
+        
+       
+        myimage.image = UIImage(named:"frame\(counter).png")
+        
     }
-
-
 }
 
